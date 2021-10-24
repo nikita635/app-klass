@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Online Test Pad - Онлайн тесты, опросы, кроссворды. Онлайн конструктор тестов, опросов, кроссвордов. Виджеты для вашего сайта. | Online Test Pad</title>
+    <meta name="description" content="Online Test Pad - Онлайн тесты, опросы, кроссворды. Онлайн конструктор тестов, опросов, кроссвордов. Виджеты для вашего сайта." />
+    <meta name="keywords" content="Online Test Pad онлайн тест опрос кроссворд конструктор тестов опросов кроссвордов тест опрос кроссворд для вашего сайта" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/remark.min.css">
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/remark-public.css?1631448392000">
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/icons/style.css?1631448392000">
+    <script src="https://cdn.onlinetestpad.net/js/jquery-3.4.1.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.onlinetestpad.net/css/slick.css">
+
+</head>
+<body class="site-navbar-small site-menubar-hide">
+    <div id="site-search-panel" class="site-search-panel animation-slide-top">
+    <form action="/ru/search">
+        <input type="hidden" name="searchid" value="2370805">
+        <div class="input-search">
+            <button type="submit" class="input-search-btn">
+                <i class="icon icon-search"></i>
+            </button>
+            <input type="text" name="text" class="form-control" placeholder="Что ищем?" autocomplete="off" />
+        </div>
+    </form>
+    <button class="btn btn-pure btn-default btn-icon" onclick="hideSiteSearch()">
+        <i class="icon-cross"></i>
+    </button>
+</div>
+<nav class="site-navbar navbar navbar-default navbar-inverse site-navbar-transparent">
+    <ul class="nav navbar-toolbar navbar-toolbar-user">
+        <li class="nav-item">
+            <a class="nav-link navbar-search" onclick="return showSiteSearch()" href="#">
+                <i class="icon-search" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- Тут дожен быть блок меню -->
+            <li class="nav-item">
+                <a class="nav-link nav-link-login" href="/ru/account/login?ReturnUrl=/" rel="nofollow">
+                    <i class="icon-keys nav-link-icon"></i>
+                    Вход
+                </a>
+            </li>
+    </ul>
+    <div class="navbar-header">
+        <div class="dropdown navbar-toggler-left">
+            <button type="button" class="navbar-toggler hamburger hided" data-toggle="dropdown">
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-bullet animation-slide-bottom" style="margin: 7px 0 0 6px;">
+                <a href="/ru/tests" class="dropdown-item">
+                    <i class="icon icon-exam"></i>
+                    Тесты
+                </a>
+                <a href="/ru/surveys" class="dropdown-item">
+                    <i class="icon icon-survey"></i>
+                    Опросы
+                </a>
+                <a href="/ru/crosswords" class="dropdown-item">
+                    <i class="icon icon-crossword"></i>
+                    Кроссворды
+                </a>
+                <a href="/ru/dialogs" class="dropdown-item">
+                    <i class="icon icon-communication"></i>
+                    Диалоги
+                </a>
+                <a href="/ru/lessons" class="dropdown-item">
+                    <i class="icon icon-lesson"></i>
+                    Уроки
+                </a>
+            </div>
+        </div>
+        <a class="navbar-brand navbar-brand-center" href="/ru">
+            <img class="navbar-brand-logo navbar-brand-logo-normal" src="https://cdn.onlinetestpad.net/images/site/logo/logo50.png" title="Online Test Pad">
+            <span class="navbar-brand-text hidden-xs-down"> Online Test Pad</span>
+        </a>
+    </div>
+    <div class="navbar-container container-fluid">
+        <div class="navbar-collapse navbar-collapse-toolbar collapse">
+            <ul class="nav navbar-toolbar">
+                <li class="nav-item">
+                    <a href="/ru/tests" class="nav-link">
+                        <i class="icon-exam nav-link-icon"></i>
+                        Тесты
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/ru/surveys" class="nav-link">
+                        <i class="icon-survey nav-link-icon"></i>
+                        Опросы
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/ru/crosswords" class="nav-link">
+                        <i class="icon-crossword nav-link-icon"></i>
+                        Кроссворды
+                    </a>
+                </li>
+                <li class="nav-item d-md-none d-lg-block">
+                    <a href="/ru/dialogs" class="nav-link">
+                        <i class="icon-communication nav-link-icon"></i>
+                        Диалоги
+                    </a>
+                </li>
+                <li class="nav-item d-md-none d-lg-none d-xl-block">
+                    <a href="/ru/lessons" class="nav-link">
+                        <i class="icon-lesson nav-link-icon"></i>
+                        Уроки
+                    </a>
+                </li>
+                <li class="nav-item nav-item-extra-dropdown dropdown d-none d-sm-none d-md-block d-xl-none">
+                    <a href="#" class="nav-link" data-toggle="dropdown">
+                        <i class="icon-arrowdown"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right animation-scale-up">
+                        <a href="/ru/logicgames" class="dropdown-item d-md-block d-lg-none">
+                            <i class="icon icon-communication"></i>
+                            Диалоги
+                        </a>
+                        <a href="/ru/lessons" class="dropdown-item d-lg-block">
+                            <i class="icon icon-lesson"></i>
+                            Уроки
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="page">
+        <div class="page-content" style="padding-top:0;">
+            <section class="promo-block promo-block-home" style="background-image: url(https://cdn.onlinetestpad.net/images/main/home3.jpg)">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h1>
+                    <span class="home-promo-block-typing"></span>
+                </h1>
+                <p>
+
+                        <span>Бесплатный</span>
+                        <span>многофункциональный</span>
+                        <span>сервис</span>
+                        <span>для</span>
+                        <span>проведения</span>
+                        <span>тестирования</span>
+                        <span>и</span>
+                        <span>обучения</span>
+                </p>
+                <a class="btn btn-lg btn-outline btn-default btn-inverse btn-round" href="#" onclick="return goToFromServices()">Что умеем</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="center-container" style="margin-top: 30px; margin-bottom: 30px;">
+    <div class="container-fluid">
+        <ul class="blocks-lg-3 blocks-md-2 blocks-100">
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-exam"></i>
+                    <h2>Конструктор<br />тестов</h2>
+                    <p>Многофункциональный онлайн конструктор тестов покрывает все задачи проведения тестирования.</p>
+                    <a href="/ru/testmaker" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-survey"></i>
+                    <h2>Конструктор<br />опросов</h2>
+                    <p>Проведение опросов с помощью нашего сервиса - простое и удобное решение ваших задач.</p>
+                    <a href="/ru/surveymaker" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-crossword"></i>
+                    <h2>Конструктор<br>кроссвордов</h2>
+                    <p>Интуитивно понятный интерфейс для создания кроссвордов пяти различных типов.</p>
+                    <a href="/ru/crosswordmaker" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-tasks"></i>
+                    <h2>Комплексные<br>задания</h2>
+                    <p>Использование тестов, кроссвордов, логических игр как своих, так и общедоступных в одном задании с изолированной статистикой.</p>
+                    <a href="/ru/taskmaker" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-communication"></i>
+                    <h2>Диалоговые<br>тренажеры</h2>
+                    <p>Создание интерактивных диалоговых тренажеров для различных целей с богатой функциональностью.</p>
+                    <a href="/ru/dialogmaker" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="home-service-box">
+                    <i class="icon-office"></i>
+                    <h2 style="font-size: 26px;height: 72px;">Система Дистанционного Обучения и Тестирования</h2>
+                    <p>Удобный инструмент для организации дистанционного обучения и тестирования ваших учеников, студентов, респондентов.</p>
+                    <a href="/ru/dlts" class="btn btn-outline btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="bg-blue-grey-500">
+    <div class="center-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center" style="color: #fff;font-size: 28px;padding: 25px 0 5px 0;">
+                    <span>Все наши сервисы предоставляются <strong>абсолютно бесплатно</strong>!</span>
+                </div>
+                    <div class="col-12 text-center font-size-18 text-white mb-20">
+                        <span class="fs-17">и будут доступны Вам после регистрации</span>
+                    </div>
+                    <div class="col-sm-5 mb-10">
+                        <a class="btn btn-primary btn-block btn-round" style="float: right; max-width: 350px;" href="/ru/account/register" rel="nofollow">Зарегистрируйся сейчас</a>
+                    </div>
+                    <div class="col-sm-2 text-center text-white mb-10">
+                        или
+                    </div>
+                    <div class="col-sm-5 mb-10">
+                        <a class="btn btn-primary btn-block btn-round" style="float: left; max-width: 350px;" href="/ru/account/login?ReturnUrl=/" rel="nofollow">войди на сайт</a>
+                    </div>
+                <div class="col-12" style="height: 20px;"></div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="center-container" style="margin-bottom: 30px;">
+    <div class="page-header text-center">
+        <h2 class="page-title">Истории успеха</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+                    <div class="col-md-6">
+                        <div class="success-story-box">
+                            <div style="height: 200px;">
+                                <div>
+                                    <div class="text" style="height: 110px; overflow: hidden;">
+                                        <p>Я являюсь старшим преподавателем кафедры общественного здоровья и здравоохранения ФГБОУ ВО "Смоленский государственный медицинский университет" Минздрава России.</p>
+<p>В связи с переводом студентов ВУЗов на дистанционное обучение встал вопрос о быстром и качественном развертывании СДО. Наша кафедра решила развернуть СДО самостоятельно и находкой для нас явилась система Online Test Pad. Несмотря на некоторые шероховатости, с нашей точки зрения, она лучшая по соотношению "цена-качество-удобство". Идеального ничего нет, но СДОиТ Online Test Pad близка к нему. Используя ее, мы проводим не только дистанционные занятия и лекции со студентами различных факультетов, но и предэкзаменационное тестирование и первый этап экзамена по нашему предмету у студентов педиатрического факультета СГМУ.</p>
+                                    </div>
+                                    <div class="success-story-box__user">
+                                            <img src="https://fs.onlinetestpad.net/fs/images/5d/52/6ab0b138464a9b7d22c3ea2c6e6a.jpg" class="rounded-circle" />
+                                        <h5>
+                                            Клыков Алексей Игоревич
+                                            <small>Старший преподаватель ФГБОУ ВО СГМУ к.м.н. , ФГБОУ ВО "Смоленский государственный медицинский университет" </small>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="success-story-box">
+                            <div style="height: 200px;">
+                                <div>
+                                    <div class="text" style="height: 110px; overflow: hidden;">
+                                        Я являюсь администратором&nbsp;сайта &quot;Центра немецкого языка&quot; г. Кемерово<br />
+У нас уже давно&nbsp; назревала потребность в онлайн тестировании, а сейчас положение стало безвыходным, и я начала думать, как это сделать. Нашла в интернете много ссылок на он-лайн конструкторы тестов - и российских, и зарубежных.<br />
+И обнаружила, что если платформа бесплатная, то тест можно сделать очень негибко, некрасиво, по очень примитивному шаблону. Если же функциональность расширяется, то это начинает много стоить. Много настолько, что такое тестирование начинает приносить убытки.<br />
+Когда я в процессе перебора ссылок нашла Online Test Pad, я сначала даже не поверила, что такая платформа существует!<br />
+Я получаю большое&nbsp;удовольствие от работы на этой платформе!<br />
+Все очень удобно, интуитивно понятно, а если возникают вопросы, можно обратиться в техподдержку, и получить быстрый, грамотный и вежливый ответ.<br />
+Все работает быстро, удобные редакторы, тест можно стилизовать под свой дизайн. Очень удобно создавать вопросы, настраивать обратную связь, результаты.&nbsp;Тест можно скачать для использования его в режиме офф-лайн на компьютере.<br />
+Супер-удобный Личный кабинет - можно посмотреть результаты тестов, можно отправлять ссылку на тест каждому&nbsp;по отдельности, с ограничением количества попыток прохождения теста. Также работает система оповещения о прохождении теста. Внесенные изменения быстро сохраняются и сразу же работают.&nbsp;<br />
+Я как системный администратор получаю огромное удовольствие от этой платформы!
+                                    </div>
+                                    <div class="success-story-box__user">
+                                            <img src="https://fs.onlinetestpad.net/fs/images/22/1b/6a6521924c8390a51ad2a9493cc2.jpg" class="rounded-circle" />
+                                        <h5>
+                                            Шишкина Анна Владимировна
+                                            <small>Администратор сайта , Центра немецкого языка</small>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-12 m-b-4 text-right">
+                    <a href="/ru/successstories" class="btn btn-outline btn-primary">
+                        Смотреть все истории
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-blue-600" style="margin-bottom: 30px;">
+    <div class="container-fluid">
+        <ul class="blocks-lg-6 blocks-md-3 blocks-sm-2 blocks-100 p-0 m-0">
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-users"></i>
+                    </div>
+                    <b>Пользователей</b>
+                    <span>523521</span>
+                </div>
+            </li>
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-exam"></i>
+                    </div>
+                    <b>Тестов</b>
+                    <span>24660</span>
+                </div>
+            </li>
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-survey"></i>
+                    </div>
+                    <b>Опросов</b>
+                    <span>1351</span>
+                </div>
+            </li>
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-crossword"></i>
+                    </div>
+                    <b>Кроссвордов</b>
+                    <span>4202</span>
+                </div>
+            </li>
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-communication"></i>
+                    </div>
+                    <b>Диалогов</b>
+                    <span>212</span>
+                </div>
+            </li>
+            <li class="mb-0">
+                <div class="home-counter">
+                    <div class="counter-icon">
+                        <i class="icon-lesson"></i>
+                    </div>
+                    <b>Уроков</b>
+                    <span>342</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="center-container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div id="app-public-home-tests-slider">
+                    <app-public-home-tests-slider></app-public-home-tests-slider>
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="app-public-home-surveys-slider">
+                    <app-public-home-surveys-slider></app-public-home-surveys-slider>
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="app-public-home-crosswords-slider">
+                    <app-public-home-crosswords-slider></app-public-home-crosswords-slider>
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="app-public-home-dialogs-slider">
+                    <app-public-home-dialogs-slider></app-public-home-dialogs-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div id="dGlobalModal" class="modal" tabindex="-1" role="dialog"></div>
+    </div>
+    <footer class="site-footer">
+    <div class="site-footer__links">
+        <div class="center-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <ul>
+                            <li>
+                                <div class="languages dropup">
+    <div class="current" data-toggle="dropdown">
+        <img src="https://cdn.onlinetestpad.net/images/flags/ruRU.gif" /><span>Русский</span>
+    </div>
+    <div class="dropdown-menu dropdown-menu-bullet">
+            <a href="/ru" class="dropdown-item">
+                <img src="https://cdn.onlinetestpad.net/images/flags/ruRU.gif"/><span>Русский</span>
+            </a>
+            <a href="/en" class="dropdown-item">
+                <img src="https://cdn.onlinetestpad.net/images/flags/enUS.gif"/><span>English</span>
+            </a>
+            <a href="/ua" class="dropdown-item">
+                <img src="https://cdn.onlinetestpad.net/images/flags/uaUA.gif"/><span>Український</span>
+            </a>
+            <a href="/by" class="dropdown-item">
+                <img src="https://cdn.onlinetestpad.net/images/flags/byBY.png"/><span>Беларускі</span>
+            </a>
+    </div>
+</div>
+
+                            </li>
+                            <li>
+                                <i class="icon-help"></i>
+                                <a href="/ru/help">Справка</a>
+                            </li>
+                            <li>
+                                <i class="icon-commentedit"></i>
+                                <a href="#" onclick="return showFeedbackForm('ru')">Форма обратной связи</a>
+                            </li>
+                            <li>
+                                <i class="icon-email"></i>
+                                <a href="mailto:support@onlinetestpad.com">Написать нам</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-sm-6">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <ul>
+                                    <li>
+                                        <i class="icon-exam"></i>
+                                        <a href="/ru/testmaker">Конструктор тестов</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-survey"></i>
+                                        <a href="/ru/surveymaker">Конструктор опросов</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-crossword"></i>
+                                        <a href="/ru/crosswordmaker">Конструктор кроссвордов</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <ul>
+                                    <li>
+                                        <i class="icon-tasks"></i>
+                                        <a href="/ru/dialogmaker">Диалоговые тренажёры</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-communication"></i>
+                                        <a href="/ru/taskmaker">Комплексные задания</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-office"></i>
+                                        <a href="/ru/dlts">Система Дистанционного Обучения и Тестирования</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-footer__copyright">
+        <div class="center-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <span>2011 - 2021</span>
+                        <span>Online Test Pad</span>
+                        <a href="/ru/terms">Соглашение об использовании</a>
+                        <a href="/ru/privacypolicy">Политика конфиденциальности</a>
+                    </div>
+                    <div class="col-md-5 ctrl-enter hidden-sm-down">
+                        <span>Нашли ошибку?</span><span>Выделите её</span><span>и нажмите</span>
+                        <b>Ctrl</b><span>+</span><b>Enter</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="scrollTopAction" class="site-action go-top-action animation-fade">
+    <button class="site-action-toggle btn-raised btn btn-default btn-floating">
+        <i class="icon-arrowdown"></i>
+    </button>
+</div>
+    <script src="https://cdn.onlinetestpad.net/js/popper.min.js"></script>
+    <script src="https://cdn.onlinetestpad.net/js/bootstrap-4.1.3.min.js"></script>
+    <script src="https://cdn.onlinetestpad.net/js/public.js?1631448394000"></script>
+    
+    <script src="https://cdn.onlinetestpad.net/js/typed.min.js"></script>
+    <script src="https://cdn.onlinetestpad.net/js/slick.min.js"></script>
+    <script>
+        $(".home-promo-block-typing").typed({
+            strings: [
+                "Конструктор тестов",
+                "Конструктор опросов",
+                "Конструктор кроссвордов",
+                "Диалоговые тренажеры",
+                "Конструктор уроков",
+                "Комплексные задания",
+                "Система Дистанционного Обучения и Тестирования",
+            ],
+            typeSpeed: 60,
+            loop: true,
+            backDelay: 1500
+        });
+    </script>
+    <div id="public-data" style="display:none;">CqPQqqA24vD96xN2tLuPD35_vYfreogU5SXunx18w8t5I8pD4GBNlynhGLqDyfyZLD5wmBH0STgCy2xhjeYfx7-H9h-ZuDsXMjo-tGAW0hdlENz_1BQFk9TA3MCjN_8RXBEVgCkC7ArDvT4Cpl14n75Vi2KcmX78s-N3J9LmVnt4yPB9frXwvg==</div>
+    <script type="text/javascript" src="https://cdn.onlinetestpad.net/public/inline.35ffae9598f4e5bf55cf.bundle.js"></script><script type="text/javascript" src="https://cdn.onlinetestpad.net/public/vendor.8407effae78bcfb047e0.bundle.js"></script><script type="text/javascript" src="https://cdn.onlinetestpad.net/public/main.cada9f02e1a0bbed33d3.bundle.js"></script>
+
+<script>
+    $('[data-toggle="tooltip"]').tooltip(); $('[data-toggle="dropdown"]').dropdown();
+    $('#scrollTopAction').scrollTopAction();
+</script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function () { try { w.yaCounter33939084 = new Ya.Metrika({ id: 33939084, clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true, trackHash: true, ut: "noindex" }); } catch (e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/33939084?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Google Analytics counter -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-20711714-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- /Google Analytics counter -->
+</body>
+</html>
